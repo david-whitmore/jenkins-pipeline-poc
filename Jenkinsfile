@@ -10,7 +10,7 @@ pipeline {
 
 		stage('SonarQube analysis') {
 			steps {
-				sh "./gradlew sonarqube -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${SONAR_LOGIN}"
+				sh "./gradlew --debug sonarqube -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${SONAR_LOGIN}"
 			}
 		}			
     }
