@@ -7,5 +7,9 @@ pipeline {
                 sh './gradlew clean build'
             }
         }
+
+		stage('SonarQube analysis') {
+			sh "./gradlew sonarqube -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${SONAR_LOGIN}"
+		}			
     }
 }
